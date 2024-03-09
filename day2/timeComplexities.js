@@ -335,4 +335,114 @@
         }
     } 
 
-*/  
+    Solution: 
+
+    Method #2:
+
+    Outer Loop:
+
+    i = n/2, n/2 + 1, n/2 + 2, ...., n
+    number of operations = n/2
+
+    Inner Loop:
+
+    1. Assume some random values for N
+
+    N = 10
+    N = 20
+    N = 29
+    N = 30
+    N = 31
+    N = 40
+
+    2. Count the number of operations for each value of N
+
+    N = 10, j = 2, 4, 8; total = 3
+    N = 20, j = 2, 4, 8, 16; total = 4
+    N = 29, j = 2, 4, 8, 16; total = 4
+    N = 30, j = 2, 4, 8, 16; total = 4
+    N = 31, j = 2, 4, 8, 16; total = 4
+    N = 40, j = 2, 4, 8, 16, 32; total = 5
+
+    3. Observe the pattern
+
+    N = 10; number of operations = 3
+    N = 20; number of operations = 4
+    N = 29; number of operations = 4
+    N = 30; number of operations = 4
+    N = 31; number of operations = 4
+    N = 40; number of operations = 5
+
+    2^X = N, find the value of X
+
+    2^X = N
+
+    Apply log2 on both sides,
+
+    log2(2^X) = log2(N)
+    X = log2(N)
+
+    4. Find the time complexity
+
+    Total time complexity, T(N) = 1 + (n/2) * log2(N)
+                                = O(n logN)
+
+*/
+
+/*
+    O(2^N)
+
+    Problem: Print all the subsets of a given set.
+
+    let set = [1, 2, 3]
+
+    subsets = [
+        [], [1], [2], [3], [1, 2], [1, 3], [2, 3], [1, 2, 3]
+    ]
+
+    N = 3, number of subsets = 2^N = 2^3 = 8
+
+    If set = [1, 2, 3, 4]
+
+    subsets = [
+        [], [1], [2], [3], [4], [1, 2], [1, 3], [1, 4], [2, 3], [2, 4], [3, 4], [1, 2, 3], [1, 2, 4], [1, 3, 4], [2, 3, 4], [1, 2, 3, 4]
+    ]
+
+    N = 4, number of subsets = 2^N = 2^4 = 16
+*/
+
+/*  
+
+    O(N!)
+
+    Problem: Print all the permutations of a given set.
+
+    Example: 1
+    
+    let word = 'abc'
+
+    permutations = [
+        'abc',
+        'acb',
+        'bac',
+        'bca',
+        'cab',
+        'cba'
+    ]
+
+    number of permutations = N! = 3! = 3 * 2 * 1 = 6
+
+    Example: 2
+
+    let word = 'abcd'
+
+    permutations = [
+        'abcd', 'abdc', 'acbd', 'acdb', 'adbc', 'adcb',
+        'bacd', 'badc', 'bcad', 'bcda', 'bdac', 'bdca',
+        'cabd', 'cadb', 'cbad', 'cbda', 'cdab', 'cdba',
+        'dabc', 'dacb', 'dbac', 'dbca', 'dcab', 'dcba'
+    ]
+
+    number of permutations = N! = 4! = 4 * 3 * 2 * 1 = 24
+
+*/
